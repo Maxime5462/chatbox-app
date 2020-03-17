@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const Message = ({ pseudo, message}) => {
+const Message = ({ pseudo, message, isUser }) => {
+  if (isUser(pseudo)) {
+    return <p classNAme="user-message"><strong>{pseudo}:</strong>{message}</p>;
+  } else {
     return (
-        <p classNAme="user-message">
-            {message}
-        </p>
-    )
-}
+      <p classNAme="not-user-message">
+        <strong>{pseudo}:</strong>{message}
+      </p>
+    );
+  }
+};
 
-export default Message
+export default Message;
